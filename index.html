@@ -10,14 +10,19 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about-me">About Me</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#life">Life</a></li>
-                <li><a href="#hobbies">Hobbies</a></li>
-                <li><a href="#albums">Albums</a></li>
-                <li><a href="#contact-me">Contact Me</a></li>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about-me" class="nav-link">About Me</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#life" class="nav-link">Life</a></li>
+                <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
+                <li><a href="#albums" class="nav-link">Albums</a></li>
+                <li><a href="#contact-me" class="nav-link">Contact Me</a></li>
             </ul>
         </nav>
     </header>
@@ -130,5 +135,37 @@
     <footer>
         <p>&copy; 2024 Angel Rose Dugaduga. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a nav link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
