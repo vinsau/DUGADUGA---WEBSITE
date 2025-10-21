@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-bottom: 60px; /* Add padding to prevent content being hidden by fixed footer */
     color: #333;
     background: url('Images/BG.jpg') no-repeat center center fixed; 
     background-size: cover;
@@ -16,11 +17,12 @@ header {
 header nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 header nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: inline-block;
+    margin: 5px 15px;
 }
 
 header nav ul li a {
@@ -28,19 +30,28 @@ header nav ul li a {
     text-decoration: none;
     font-weight: bold;
     font-size: 25px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00;
 }
 
 .section {
     padding: 60px 100px;
     max-width: 1000px;
-    margin: auto;
+    margin: 20px auto;
     background-color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: 30px;
 }
 
+.section h1 {
+    color: #6a0dad;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
 
 .section h2 {
     color: #6a0dad;
@@ -48,9 +59,9 @@ header nav ul li a {
     font-size: 28px; 
 }
 
-
 .section p {
-    font-size: 25px; /* Change font size for paragraph text here */
+    font-size: 25px;
+    line-height: 1.6;
 }
 
 .content {
@@ -79,11 +90,15 @@ header nav ul li a {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .gallery img {
     width: calc(33.333% - 10px);
     border-radius: 8px;
+    object-fit: cover;
+    min-width: 250px;
+    flex: 1 1 calc(33.333% - 10px);
 }
 
 .social-links {
@@ -107,8 +122,185 @@ footer {
     background-color: rgba(106, 13, 173, 0.8);
     color: #fff;
     text-align: center;
-    padding: 0px 0;
+    padding: 15px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* ==================== RESPONSIVE MEDIA QUERIES ==================== */
+
+/* Tablets and smaller laptops (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .section {
+        padding: 40px 60px;
+        font-size: 26px;
+    }
+    
+    .section h1 {
+        font-size: 32px;
+    }
+    
+    .section h2 {
+        font-size: 26px;
+    }
+    
+    .section p {
+        font-size: 22px;
+    }
+    
+    header nav ul li a {
+        font-size: 22px;
+        margin: 5px 10px;
+    }
+    
+    .gallery img {
+        width: calc(50% - 10px);
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+/* Tablets portrait mode (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    header nav ul li {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+    
+    header nav ul li a {
+        font-size: 18px;
+    }
+    
+    .section {
+        padding: 30px 40px;
+        font-size: 22px;
+        margin: 15px auto;
+    }
+    
+    .section h1 {
+        font-size: 28px;
+    }
+    
+    .section h2 {
+        font-size: 24px;
+    }
+    
+    .section p {
+        font-size: 18px;
+    }
+    
+    .content {
+        flex-direction: column;
+    }
+    
+    .text {
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+    
+    .image, .video {
+        width: 100%;
+    }
+    
+    .gallery img {
+        width: calc(50% - 10px);
+        flex: 1 1 calc(50% - 10px);
+        min-width: 200px;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-links li {
+        margin: 10px 0;
+    }
+}
+
+/* Mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px 5px;
+    }
+    
+    header nav ul li {
+        display: block;
+        margin: 8px 0;
+    }
+    
+    header nav ul li a {
+        font-size: 16px;
+    }
+    
+    .section {
+        padding: 20px 15px;
+        font-size: 18px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+    
+    .section h1 {
+        font-size: 24px;
+    }
+    
+    .section h2 {
+        font-size: 20px;
+    }
+    
+    .section p {
+        font-size: 16px;
+    }
+    
+    .content {
+        flex-direction: column;
+    }
+    
+    .text {
+        padding-right: 0;
+        padding-bottom: 15px;
+    }
+    
+    .gallery {
+        gap: 8px;
+    }
+    
+    .gallery img {
+        width: 100%;
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+    
+    footer {
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+    
+    body {
+        padding-bottom: 50px;
+    }
+}
+
+/* Extra small devices (max-width: 320px) */
+@media screen and (max-width: 320px) {
+    header nav ul li a {
+        font-size: 14px;
+    }
+    
+    .section {
+        padding: 15px 10px;
+        margin: 8px;
+    }
+    
+    .section h1 {
+        font-size: 20px;
+    }
+    
+    .section h2 {
+        font-size: 18px;
+    }
+    
+    .section p {
+        font-size: 14px;
+    }
 }
