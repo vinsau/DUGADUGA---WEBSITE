@@ -1,0 +1,339 @@
+/* ==================== KEYFRAME ANIMATIONS ==================== */
+/* Slide in from left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Floating animation for images */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Shimmer effect on load */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Pulse effect */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Zoom in animation for lightbox */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade in up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== FADE-IN ANIMATIONS ==================== */
+.fade-in-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==================== SLIDE ANIMATIONS ==================== */
+.slide-in-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ==================== IMAGE ANIMATIONS ==================== */
+/* Floating animation */
+.image img {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Shimmer effect on section */
+.section.shimmer::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 3s ease-in-out;
+}
+
+/* ==================== LAZY LOADING ==================== */
+.lazy-img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lazy-img.loaded {
+    opacity: 1;
+}
+
+/* ==================== SCROLL TO TOP BUTTON ==================== */
+#scroll-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: 0 8px 24px var(--purple-glow);
+}
+
+#scroll-to-top:hover {
+    background: linear-gradient(135deg, #7c3aed, #b794f6);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 32px var(--purple-glow);
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==================== LIGHTBOX ==================== */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: blur(20px);
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    animation: zoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px var(--purple-glow);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 24px;
+    right: 40px;
+    color: white;
+    font-size: 48px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10001;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--purple-glow);
+    border-radius: 50%;
+}
+
+.close-lightbox:hover {
+    background: var(--primary-purple);
+    transform: rotate(90deg);
+}
+
+.lightbox-caption {
+    color: white;
+    font-size: 18px;
+    margin-top: 24px;
+    text-align: center;
+    padding: 12px 24px;
+    background: var(--purple-glow);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--purple-glow);
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10001;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-nav:hover {
+    background: var(--primary-purple);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-nav.prev {
+    left: 20px;
+}
+
+.lightbox-nav.next {
+    right: 20px;
+}
+
+/* ==================== HOVER EFFECTS ==================== */
+/* Smooth transitions for sections */
+.section {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease;
+}
+
+/* Video hover effect */
+.video video {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.video video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px var(--shadow-hover);
+    border-color: var(--accent-mauve);
+}
+
+/* Gallery images hover */
+.gallery img {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+/* Social links hover */
+.social-links li a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links li a i {
+    transition: transform 0.3s ease;
+}
+
+/* ==================== MOBILE MENU BACKDROP ==================== */
+.menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 998;
+    animation: fadeInUp 0.3s ease;
+}
+
+/* ==================== SWIPE FEEDBACK ==================== */
+.swipe-feedback {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    background: var(--purple-glow);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.swipe-feedback.show {
+    opacity: 1;
+    animation: pulse 0.5s ease;
+}
+
+/* ==================== PULL TO REFRESH INDICATOR ==================== */
+.pull-indicator {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 0 0 12px 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 999;
+}
+
+.pull-indicator.show {
+    opacity: 1;
+}

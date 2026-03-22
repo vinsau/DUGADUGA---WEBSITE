@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section
+        id="albums"
+        class="section"
+        th:fragment="albums"
+        aria-labelledby="albums-heading">
+        <h2 id="albums-heading">Albums</h2>
+        <div class="gallery" role="region" aria-label="Photo gallery of Angel Rose">
+            <img
+                th:each="image : ${albumImages}"
+                th:src="${image.url}"
+                th:alt="${image.altText}"
+                loading="lazy">
+        </div>
+    </section>
+</body>
+</html>

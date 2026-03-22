@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section
+        id="home"
+        class="section"
+        th:fragment="home"
+        aria-labelledby="home-heading">
+        <div class="content">
+            <div class="text">
+                <h1 id="home-heading" th:text="${personalInfo.greeting}">
+                    Hi! I'm Angel Rose Y. Dugaduga
+                </h1>
+                <p th:utext="${#strings.replace(personalInfo.welcomeMessage, '\n', '<br>')}">
+                    Welcome to my Autobiography.
+                    <br><br>
+                    Do you want to know more about me?
+                </p>
+            </div>
+            <div class="image">
+                <img
+                    th:src="@{/images/HOME.jpg}"
+                    th:alt="'Photo of ' + ${personalInfo.name}"
+                    loading="lazy">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

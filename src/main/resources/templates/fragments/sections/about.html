@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section
+        id="about-me"
+        class="section"
+        th:fragment="about"
+        aria-labelledby="about-heading">
+        <div class="content">
+            <div class="text">
+                <h2 id="about-heading">About Me</h2>
+                <p th:utext="${#strings.replace(aboutMeContent, '\n\n', '<br><br>')}">
+                    I was born on October 7, 2004. I live in Basak Kagudoy, Lapu-Lapu City. I live with my parents. I also have three older sisters.
+                    <br><br>
+                    My family is very close-knit, and we enjoy spending a lot of time together. We are deeply family-oriented.
+                    <br><br>
+                    During my childhood, I was quite shy, especially around new people or strangers. However, as I grew and went to high school, I became much more outgoing and approachable.
+                    <br><br>
+                    One of the highlights of my high school experience was the amazing friends I made.
+                    Their friendship made my high school years truly memorable.
+                    I pursue college to have a bachelor's degree and to be a successful individual in the future.
+                </p>
+            </div>
+            <div class="image">
+                <img
+                    th:src="@{/images/ABOUT ME.jpg}"
+                    alt="Angel Rose with family and friends"
+                    loading="lazy">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

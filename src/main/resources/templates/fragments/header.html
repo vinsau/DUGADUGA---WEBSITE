@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <header th:fragment="header">
+        <nav role="navigation" aria-label="Main navigation">
+            <button
+                class="hamburger"
+                id="hamburger"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+                aria-controls="nav-menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+            <ul id="nav-menu" role="menubar">
+                <li role="none" th:each="link : ${navigationLinks}">
+                    <a
+                        th:href="${link.url}"
+                        class="nav-link"
+                        role="menuitem"
+                        th:text="${link.label}">
+                        Navigation Link
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

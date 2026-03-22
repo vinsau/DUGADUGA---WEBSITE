@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section
+        id="contact-me"
+        class="section"
+        th:fragment="contact"
+        aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <ul class="social-links">
+            <li th:each="social : ${socialLinks}">
+                <a
+                    th:href="${social.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    th:aria-label="'Visit Angel Rose on ' + ${social.platform}">
+                    <i th:class="${social.icon}" aria-hidden="true"></i>
+                    <span th:text="${social.platform}">Social Platform</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

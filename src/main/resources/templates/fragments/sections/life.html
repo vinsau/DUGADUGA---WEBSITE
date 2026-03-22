@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section
+        id="life"
+        class="section"
+        th:fragment="life"
+        aria-labelledby="life-heading">
+        <div class="content">
+            <div class="text">
+                <h2 id="life-heading">Life</h2>
+                <p th:utext="${#strings.replace(lifeContent, '\n\n', '<br><br>')}">
+                    For me, life is about the bond we share with our loved ones and the trust we place in each other.
+                    <br><br>
+                    It's also about self-acceptance and being comfortable with who we are as individuals.
+                    And once we learn to love ourselves, we can fully appreciate the beauty of life.
+                    <br><br>
+                    Ultimately, the most important relationship we have is with God.
+                    We need to fully surrender and trust God in everything we do,
+                    for His plans are greater than ours.
+                </p>
+            </div>
+            <div class="image">
+                <img
+                    th:src="@{/images/LIFE.jpg}"
+                    alt="Reflection on life and faith"
+                    loading="lazy">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

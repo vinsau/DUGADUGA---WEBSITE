@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section
+        id="education"
+        class="section"
+        th:fragment="education"
+        aria-labelledby="education-heading">
+        <div class="content">
+            <div class="text">
+                <h2 id="education-heading">Education</h2>
+                <p th:utext="${#strings.replace(educationContent, '\n\n', '<br><br>')}">
+                    I went to school at the age of 4. In kindergarten, I attended Bible Baptist.
+                    <br><br>
+                    For elementary, I went to St. Augustine International School (SAIS) until grade 10.
+                    <br><br>
+                    For senior high school, I studied at Benthel Asia School of Technology Inc. (BAST) from grade 11 to 12.
+                    <br><br>
+                    Currently, I am a college student at Lapu-Lapu City College taking up Bachelor's Science in Industrial Technology.
+                </p>
+            </div>
+            <div class="image">
+                <img
+                    th:src="@{/images/EDUCATION.jpg}"
+                    alt="Angel Rose's educational journey"
+                    loading="lazy">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

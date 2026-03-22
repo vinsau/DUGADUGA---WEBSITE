@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <section
+        id="hobbies"
+        class="section"
+        th:fragment="hobbies"
+        aria-labelledby="hobbies-heading">
+        <div class="content">
+            <div class="text">
+                <h2 id="hobbies-heading">Hobbies</h2>
+                <p th:text="${hobbiesContent}">
+                    Listening to music helps me relax and cheers me up, reading comics,
+                    and spending time with my family. We also travel and enjoy doing things together.
+                </p>
+            </div>
+            <div class="video">
+                <video controls autoplay muted aria-label="Video showcasing Angel Rose's hobbies">
+                    <source th:src="@{/images/HOBBIES.mp4}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
