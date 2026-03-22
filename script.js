@@ -175,10 +175,23 @@ document.addEventListener('keydown', function(e) {
 });
 
 // ==================== SCROLL TO TOP BUTTON ====================
+// Remove any existing scroll to top button first
+const existingBtn = document.getElementById('scroll-to-top');
+if (existingBtn) {
+    existingBtn.remove();
+}
+
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.id = 'scroll-to-top';
 scrollToTopBtn.innerHTML = '&#8593;';
 scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+scrollToTopBtn.style.cssText = `
+    position: fixed !important;
+    bottom: 50px !important;
+    right: 30px !important;
+    left: auto !important;
+    top: auto !important;
+`;
 document.body.appendChild(scrollToTopBtn);
 
 // Show/hide scroll to top button
@@ -192,6 +205,13 @@ window.addEventListener('scroll', function() {
 
 // Scroll to top functionality
 scrollToTopBtn.addEventListener('click', function() {
+    // Ensure positioning doesn't change
+    this.style.position = 'fixed';
+    this.style.bottom = '50px';
+    this.style.right = '30px';
+    this.style.left = 'auto';
+    this.style.top = 'auto';
+
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
